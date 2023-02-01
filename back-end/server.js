@@ -3,8 +3,8 @@ const bodyParser = require("body-parser");
 const crypto = require("crypto"); //NOT IN TUTORIAL
 const app = express();
 const axios = require("axios");
-const products = require("./products.js");
-const baseURL = "http://localhost:3030";
+const products = require("../front-end/products.js");
+const baseURL = "http://localhost:3001";
 
 products.forEach(async (product) => {
   const response = await axios.post(`${baseURL}/api/products`, product);
@@ -104,4 +104,4 @@ app.delete("/api/cart/:id", (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(3030, () => console.log("Server listening on port 3030!"));
+app.listen(3001, () => console.log("Server listening on port 3001!"));
